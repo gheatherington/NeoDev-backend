@@ -5,9 +5,13 @@ import RPi.GPIO as GPIO
 def home():
     return ""
 
-@app.route("/on", methods=["POST"])
+@app.route("/on", methods=["GET", "POST"])
 def on():
     GPIO.output(8, 1)
+
+@app.route("/off", methods=["GET", "POST"])
+def off():
+    GPIO.output(8, 0)
 
 if __name__ == "__main__":
     GPIO.setmode(GPIO.BOARD)
