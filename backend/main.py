@@ -8,10 +8,12 @@ def home():
 @app.route("/on", methods=["GET", "POST"])
 def on():
     GPIO.output(8, 1)
+    return "on"
 
 @app.route("/off", methods=["GET", "POST"])
 def off():
     GPIO.output(8, 0)
+    return "off"
 
 if __name__ == "__main__":
     GPIO.setmode(GPIO.BOARD)
